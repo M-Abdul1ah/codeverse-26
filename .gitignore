@@ -5,7 +5,7 @@ __pycache__/
 .matplotlib_cache/
 
 # Streamlit runtime
-.streamlit/
+.streamlit/secrets.toml
 
 # Temporary files
 *.tmp

@@ -25,25 +25,32 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom High-End Professional CSS
+# Custom High-End White & Orange Theme CSS
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
     
     html, body, [class*="css"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
     }
     
+    /* Clean, crisp app canvas */
+    .stApp {
+        background-color: #fafaf9;
+    }
+    
+    /* Vibrant Sunset Orange Main Header */
     .main-header {
-        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-        padding: 24px 30px;
-        border-radius: 12px;
+        background: linear-gradient(135deg, #c2410c 0%, #ea580c 40%, #f97316 80%, #fb923c 100%);
+        padding: 26px 32px;
+        border-radius: 16px;
         color: white;
         margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        box-shadow: 0 10px 25px -4px rgba(234, 88, 12, 0.28), 0 4px 10px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.25);
     }
     .main-header h1 {
-        font-size: 2.2rem;
+        font-size: 2.25rem;
         font-weight: 800;
         margin: 0;
         color: #ffffff !important;
@@ -52,30 +59,46 @@ st.markdown("""
     .main-header p {
         font-size: 1.05rem;
         margin: 6px 0 0 0;
-        color: #e0e7ff;
-        opacity: 0.95;
+        color: #ffedd5 !important;
+        opacity: 0.98;
+        font-weight: 500;
     }
     
+    /* Premium White Glass Cards with Orange Accent */
     .glass-card {
         background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 18px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        border: 1px solid #ffedd5;
+        border-radius: 14px;
+        padding: 22px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 18px rgba(234, 88, 12, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .glass-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(234, 88, 12, 0.1);
+        border-color: #fed7aa;
     }
     
+    /* Metric Containers */
     .metric-container {
         background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        padding: 16px 20px;
-        border-left: 5px solid #2563eb;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        border: 1px solid #ffedd5;
+        border-radius: 14px;
+        padding: 18px 22px;
+        border-left: 5px solid #ea580c;
+        box-shadow: 0 4px 16px rgba(234, 88, 12, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .metric-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(234, 88, 12, 0.12);
+        border-left-width: 7px;
     }
     
+    /* Badges */
     .badge-high {
-        background-color: #fee2e2;
+        background-color: #fef2f2;
         color: #991b1b;
         padding: 6px 14px;
         border-radius: 20px;
@@ -83,21 +106,21 @@ st.markdown("""
         font-size: 0.88rem;
         display: inline-flex;
         align-items: center;
-        border: 1px solid #f87171;
+        border: 1px solid #fca5a5;
     }
     .badge-med {
-        background-color: #fef3c7;
-        color: #92400e;
+        background-color: #fff7ed;
+        color: #c2410c;
         padding: 6px 14px;
         border-radius: 20px;
         font-weight: 700;
         font-size: 0.88rem;
         display: inline-flex;
         align-items: center;
-        border: 1px solid #fcd34d;
+        border: 1px solid #fdba74;
     }
     .badge-low {
-        background-color: #dcfce7;
+        background-color: #f0fdf4;
         color: #166534;
         padding: 6px 14px;
         border-radius: 20px;
@@ -110,39 +133,115 @@ st.markdown("""
     
     .section-title {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 800;
         color: #0f172a;
-        margin-top: 10px;
-        margin-bottom: 12px;
+        margin-top: 14px;
+        margin-bottom: 14px;
         display: flex;
         align-items: center;
         gap: 8px;
     }
     
     .advice-box {
-        background-color: #f8fafc;
-        border-left: 4px solid #3b82f6;
-        padding: 12px 16px;
-        border-radius: 0 8px 8px 0;
-        margin-bottom: 10px;
+        background-color: #fffaf5;
+        border: 1px solid #fed7aa;
+        border-left: 5px solid #ea580c;
+        padding: 14px 18px;
+        border-radius: 0 12px 12px 0;
+        margin-bottom: 12px;
         font-size: 0.95rem;
         color: #1e293b;
+        box-shadow: 0 2px 8px rgba(234, 88, 12, 0.05);
     }
     
-    .sidebar-header {
+    /* Sidebar Brand Card */
+    .sidebar-brand-card {
+        background: linear-gradient(135deg, #c2410c 0%, #ea580c 55%, #f97316 100%);
+        padding: 18px 20px;
+        border-radius: 14px;
+        color: white;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
+    }
+    .sidebar-brand-card h2 {
+        color: #ffffff !important;
         font-weight: 800;
-        color: #1e3a8a;
-        font-size: 1.4rem;
-        margin-bottom: 4px;
+        font-size: 1.5rem;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: -0.5px;
+    }
+    .sidebar-brand-card p {
+        color: #ffedd5 !important;
+        font-size: 0.85rem;
+        margin: 5px 0 0 0;
+        font-weight: 500;
+        line-height: 1.3;
     }
     
+    /* Interactive Streamlit Tabs */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
+        border-bottom: 2px solid #fed7aa;
+        padding-bottom: 4px;
     }
     .stTabs [data-baseweb="tab"] {
-        padding: 8px 16px;
-        border-radius: 6px;
+        padding: 8px 18px;
+        border-radius: 8px;
         font-weight: 600;
+        color: #64748b;
+        transition: all 0.2s ease;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #fff7ed;
+        color: #ea580c;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #fff7ed !important;
+        color: #ea580c !important;
+        border-bottom: 3px solid #ea580c !important;
+        font-weight: 700 !important;
+    }
+    
+    /* High Impact Orange Buttons */
+    .stButton > button, div[data-testid="stFormSubmitButton"] > button {
+        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 0.98rem !important;
+        border-radius: 10px !important;
+        border: none !important;
+        padding: 12px 26px !important;
+        box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3) !important;
+        transition: all 0.2s ease !important;
+    }
+    .stButton > button:hover, div[data-testid="stFormSubmitButton"] > button:hover {
+        background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+        box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45) !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    /* Download Button */
+    div[data-testid="stDownloadButton"] > button {
+        background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        border-radius: 10px !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3) !important;
+    }
+    div[data-testid="stDownloadButton"] > button:hover {
+        background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%) !important;
+        box-shadow: 0 6px 20px rgba(234, 88, 12, 0.45) !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    /* Progress Bar (Orange Gradient) */
+    .stProgress > div > div > div > div {
+        background: linear-gradient(90deg, #ea580c 0%, #f97316 100%) !important;
+        border-radius: 10px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -191,11 +290,16 @@ training_medians = metadata.get('training_medians', {
 raw_df, clean_df = load_data()
 explainer = ResultExplainer(models_dir=MODELS_DIR, charts_dir=CHARTS_DIR)
 
-# Sidebar (100% Offline, Clean Typography)
-st.sidebar.markdown('<p class="sidebar-header">🎓 EduPulse</p>', unsafe_allow_html=True)
-st.sidebar.markdown("**At-Risk Student Early Warning System**")
-st.sidebar.markdown("*Track 4: AI Sprint (CodeVerse26)*")
-st.sidebar.markdown("---")
+# Sidebar (High-Impact White & Orange Brand Card)
+st.sidebar.markdown("""
+<div class="sidebar-brand-card">
+    <h2>🎓 EduPulse</h2>
+    <p>At-Risk Student Early Warning System</p>
+    <div style="font-size: 0.75rem; color: #ffedd5; margin-top: 6px; font-weight: 600; opacity: 0.95;">
+        ⚡ Track 4: AI Sprint | CodeVerse26
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 nav_choice = st.sidebar.radio(
     "Navigation Menu:",
@@ -239,34 +343,34 @@ if nav_choice == "📋 Overview & Executive Dashboard":
     kpi1, kpi2, kpi3, kpi4 = st.columns(4)
     with kpi1:
         st.markdown(f"""
-        <div class="metric-container" style="border-left-color: #2563eb;">
-            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:600;">ACTIVE COHORT</p>
+        <div class="metric-container" style="border-left-color: #ea580c;">
+            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:700;">ACTIVE COHORT</p>
             <h2 style="margin:4px 0 0 0; color:#0f172a; font-weight:800;">{total_cohort}</h2>
-            <span style="font-size:0.8rem; color:#2563eb; font-weight:600;">Deduplicated Records</span>
+            <span style="font-size:0.8rem; color:#ea580c; font-weight:700;">Deduplicated Records</span>
         </div>
         """, unsafe_allow_html=True)
     with kpi2:
         st.markdown(f"""
         <div class="metric-container" style="border-left-color: #10b981;">
-            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:600;">PASSING STUDENTS</p>
+            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:700;">PASSING STUDENTS</p>
             <h2 style="margin:4px 0 0 0; color:#0f172a; font-weight:800;">{pass_total} <span style="font-size:1rem; font-weight:600; color:#10b981;">({pass_pct:.1f}%)</span></h2>
-            <span style="font-size:0.8rem; color:#10b981; font-weight:600;">Satisfactory Standing</span>
+            <span style="font-size:0.8rem; color:#10b981; font-weight:700;">Satisfactory Standing</span>
         </div>
         """, unsafe_allow_html=True)
     with kpi3:
         st.markdown(f"""
         <div class="metric-container" style="border-left-color: #ef4444;">
-            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:600;">AT-RISK POPULATION</p>
+            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:700;">AT-RISK POPULATION</p>
             <h2 style="margin:4px 0 0 0; color:#0f172a; font-weight:800;">{fail_total} <span style="font-size:1rem; font-weight:600; color:#ef4444;">({fail_pct:.1f}%)</span></h2>
-            <span style="font-size:0.8rem; color:#ef4444; font-weight:600;">Immediate Advising Focus</span>
+            <span style="font-size:0.8rem; color:#ef4444; font-weight:700;">Immediate Advising Focus</span>
         </div>
         """, unsafe_allow_html=True)
     with kpi4:
         st.markdown(f"""
-        <div class="metric-container" style="border-left-color: #8b5cf6;">
-            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:600;">MAX EARLY RECALL</p>
+        <div class="metric-container" style="border-left-color: #f97316;">
+            <p style="margin:0; font-size:0.85rem; color:#64748b; font-weight:700;">MAX EARLY RECALL</p>
             <h2 style="margin:4px 0 0 0; color:#0f172a; font-weight:800;">{best_recall:.1f}%</h2>
-            <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Zero Missed At-Risk Cases</span>
+            <span style="font-size:0.8rem; color:#ea580c; font-weight:700;">Zero Missed At-Risk Cases</span>
         </div>
         """, unsafe_allow_html=True)
 
@@ -811,12 +915,15 @@ elif nav_choice == "🎛️ A7: What-If Counterfactual Lab":
             risks_y.append(lr_model.predict_proba(sc)[0][1] * 100.0)
 
         fig_sens, ax_sens = plt.subplots(figsize=(9, 4.2))
-        ax_sens.plot(att_x, risks_y, color='#2563eb', linewidth=3, label='Failure Risk Curve')
-        ax_sens.axhline(50, color='#ef4444', linestyle='--', label='50% At-Risk Threshold')
-        ax_sens.scatter([b_att], [base_risk], color='#dc2626', s=120, zorder=5, label=f"Baseline: {base_risk:.1f}%")
-        ax_sens.scatter([new_att], [sim_risk], color='#16a34a', s=120, zorder=5, label=f"Simulated: {sim_risk:.1f}%")
-        ax_sens.set_xlabel("Attendance Percentage (%)")
-        ax_sens.set_ylabel("Failure Risk (%)")
-        ax_sens.set_title("Counterfactual Attendance Curve", fontsize=11, fontweight='bold')
-        ax_sens.legend()
+        ax_sens.set_facecolor('#ffffff')
+        fig_sens.patch.set_facecolor('#ffffff')
+        ax_sens.plot(att_x, risks_y, color='#ea580c', linewidth=3.2, label='Failure Risk Curve')
+        ax_sens.axhline(50, color='#ef4444', linestyle='--', linewidth=1.5, label='50% At-Risk Threshold')
+        ax_sens.scatter([b_att], [base_risk], color='#dc2626', s=130, zorder=5, label=f"Baseline: {base_risk:.1f}%")
+        ax_sens.scatter([new_att], [sim_risk], color='#16a34a', s=130, zorder=5, label=f"Simulated: {sim_risk:.1f}%")
+        ax_sens.set_xlabel("Attendance Percentage (%)", fontweight='600')
+        ax_sens.set_ylabel("Failure Risk (%)", fontweight='600')
+        ax_sens.set_title("Counterfactual Attendance Curve", fontsize=12, fontweight='bold', color='#0f172a')
+        ax_sens.grid(True, linestyle=':', alpha=0.5, color='#cbd5e1')
+        ax_sens.legend(loc='upper right')
         st.pyplot(fig_sens)
