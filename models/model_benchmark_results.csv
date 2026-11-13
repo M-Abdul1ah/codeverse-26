@@ -1,0 +1,4 @@
+Model,Accuracy,Recall (Fail),Precision (Fail),F1-Score (Fail),Recall (Pass),Precision (Pass),F1-Score (Pass),Best For
+Logistic Regression,88.33,100.0,60.0,0.75,85.86,100.0,0.9239,Zero False Negatives (Catches 100% of at-risk students)
+Random Forest,87.5,71.43,62.5,0.6667,90.91,93.75,0.9231,Balanced non-linear decision boundary with high accuracy
+Decision Tree,74.17,85.71,39.13,0.5373,71.72,95.95,0.8208,Hierarchical rule interpretability
