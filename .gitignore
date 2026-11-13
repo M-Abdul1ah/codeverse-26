@@ -1,0 +1,12 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.matplotlib_cache/
+
+# Streamlit runtime
+.streamlit/
+
+# Temporary files
+*.tmp
+*_temp.csv
