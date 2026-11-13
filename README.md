@@ -1,5 +1,5 @@
 # EduPulse: At-Risk Student Early Warning System
-**Track 4 - Vibe Jam: AI Sprint | 2-Hour CodeVerse26 Competition**
+# Vibe Jam: AI Sprint | 2-Hour CodeVerse26 Competition
 
 EduPulse is an AI-powered early-warning decision support system designed for university academic advisors and course instructors. By evaluating mid-semester indicators (attendance, quiz averages, assignment scores, mid-term marks, lab marks, weekly study hours, prior CGPA, and employment status), EduPulse identifies vulnerable students before final examinations and provides plain-language intervention recommendations.
 
